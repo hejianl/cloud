@@ -1,0 +1,28 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /consumer
+spring:
+  data-username: root
+  data-password: hejianliang
+  driver-class-name: com.mysql.jdbc.Driver
+  datasource:
+    url: jdbc:mysql://localhost:3305/cloud
+##
+#dubbo:
+#  protocol:
+#    name: dubbo
+#    port: 20881
+#  application:
+#    ##### 注册服务的名称
+#    name: order
+#  ##### 注册中心地址
+#  registry:
+#    address: zookeeper://192.168.50.128:2181
+#  ##### 调用服务超时时间
+#  consumer:
+#    timeout: 5000
+    ##
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.kkhjl.cloud.dao
