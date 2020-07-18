@@ -8,12 +8,18 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 
 @Component
-public class KafkaProducer {
-    @Autowired
+public class  KafkaProducer {
+    //@Autowired
     private KafkaTemplate<String, MemberInfo> kafkaTemplate;
-    private static final String TOPIC_NAME="testTopic";
+    private static final String TOPIC_NAME="test";
     //发送消息方法
     public void send(MemberInfo info) {
-        ListenableFuture<SendResult<String, MemberInfo>>  respon =  kafkaTemplate.send("testTopic",info);
+        ListenableFuture<SendResult<String, MemberInfo>>  respon =  kafkaTemplate.send(TOPIC_NAME,info);
+        try {
+            System.out.println(respon.get().toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }

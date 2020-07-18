@@ -31,9 +31,10 @@ public class MemberController {
     private KafkaProducer kafkaProducer;
     @GetMapping(value = "/get/{id}/{size}")
     public MemberInfo selectMemberById(@PathVariable("id") String id,@PathVariable("size") int size) throws Exception{
-        memberHandleService.batchSaveMembers(null);
-
-        return null;
+        //memberHandleService.batchSaveMembers(null);
+        MemberInfo r = new MemberInfo();
+        r.setAddress("test");
+        return r;
     }
     private static ExecutorService e = Executors.newFixedThreadPool(100);
 
